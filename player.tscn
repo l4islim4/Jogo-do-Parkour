@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnwwggmcdo8sm"]
+[gd_scene load_steps=14 format=3 uid="uid://bnwwggmcdo8sm"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_2g0pt"]
 [ext_resource type="Texture2D" uid="uid://buts7s3oupyaq" path="res://player.png" id="2_my0ly"]
+[ext_resource type="Resource" uid="uid://c03vkrowlts3h" path="res://DefaultMovementData.tres" id="2_su48h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_elqx6"]
 atlas = ExtResource("2_my0ly")
@@ -82,8 +83,9 @@ size = Vector2(8, 28)
 
 [node name="Player" type="CharacterBody2D"]
 floor_constant_speed = true
-floor_snap_length = 2.0
+floor_snap_length = 3.0
 script = ExtResource("1_2g0pt")
+movement_data = ExtResource("2_su48h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
@@ -94,3 +96,7 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_6mnuw")
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

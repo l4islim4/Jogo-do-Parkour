@@ -4,6 +4,6 @@ extends Node2D
 @onready var polygon_2d = $StaticBody2D/CollisionPolygon2D/Polygon2D
 
 func _ready():
-	RenderingServer.set_default_clear_color(Color.DARK_BLUE)
+	RenderingServer.set_default_clear_color(Color.CADET_BLUE	)
 	polygon_2d.polygon = collision_polygon_2d.polygon
 	

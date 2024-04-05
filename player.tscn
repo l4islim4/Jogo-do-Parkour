@@ -79,7 +79,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mnuw"]
-size = Vector2(8, 28)
+size = Vector2(8, 21)
 
 [node name="Player" type="CharacterBody2D"]
 floor_constant_speed = true
@@ -88,15 +88,19 @@ script = ExtResource("1_2g0pt")
 movement_data = ExtResource("2_su48h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -12)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_yy6yf")
 animation = &"run"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_6mnuw")
 
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -32)

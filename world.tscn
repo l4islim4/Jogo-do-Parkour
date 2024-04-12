@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://nimycyaco22j"]
+[gd_scene load_steps=8 format=3 uid="uid://nimycyaco22j"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ij173"]
 [ext_resource type="PackedScene" uid="uid://bnwwggmcdo8sm" path="res://player.tscn" id="2_cmxan"]
 [ext_resource type="PackedScene" uid="uid://bdx1yhh2hfnfj" path="res://spikes.tscn" id="3_1ov31"]
+[ext_resource type="PackedScene" uid="uid://c7ftp0rk17rp1" path="res://heart.tscn" id="4_kuk1r"]
+[ext_resource type="PackedScene" uid="uid://b6nwseh4sn6o6" path="res://level_completed.tscn" id="5_lhuql"]
+[ext_resource type="PackedScene" uid="uid://c7qb8yy2qyi15" path="res://level_tile_map.tscn" id="6_qray5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8a3b4"]
 size = Vector2(24, 72)
@@ -15,23 +18,23 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(0, 4)
-polygon = PackedVector2Array(0, -4, 16, -4, 16, 80, 16, 124, 56, 124, 80, 132, 96, 132, 96, 116, 112, 116, 112, 132, 112, 153, 128, 153, 128, 132, 176, 132, 184, 116, 208, 116, 216, 108, 248, 100, 264, 100, 264, 116, 280, 148, 304, 148, 304, 124, 304, 72, 304, -4, 320, -4, 320, 176, 0, 176)
+polygon = PackedVector2Array(0, -4, 16, -4, 16, 80, 16, 124, 56, 124, 80, 132, 96, 132, 96, 116, 112, 116, 112, 132, 112, 153, 128, 153, 128, 132, 176, 132, 184, 116, 280, 116, 280, 148, 304, 148, 304, 124, 304, 72, 304, -4, 320, -4, 320, 176, 0, 176)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_cmxan")]
-position = Vector2(72, 96)
+position = Vector2(32, 96)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(244, 36)
+position = Vector2(260, 36)
 shape = SubResource("RectangleShape2D_8a3b4")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
-offset_left = 232.0
-offset_right = 256.0
+offset_left = 248.0
+offset_right = 272.0
 offset_bottom = 72.0
 
 [node name="Spikes" parent="." instance=ExtResource("3_1ov31")]
@@ -42,3 +45,28 @@ position = Vector2(296, 144)
 
 [node name="Spikes3" parent="." instance=ExtResource("3_1ov31")]
 position = Vector2(120, 149)
+
+[node name="Heart" parent="." instance=ExtResource("4_kuk1r")]
+position = Vector2(104, 112)
+
+[node name="Heart2" parent="." instance=ExtResource("4_kuk1r")]
+position = Vector2(296, 64)
+
+[node name="Heart3" parent="." instance=ExtResource("4_kuk1r")]
+position = Vector2(192, 0)
+
+[node name="Heart5" parent="." instance=ExtResource("4_kuk1r")]
+position = Vector2(32, 40)
+
+[node name="Heart4" parent="." instance=ExtResource("4_kuk1r")]
+position = Vector2(280, 16)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_lhuql")]
+visible = false
+
+[node name="LevelTileMap" parent="." instance=ExtResource("6_qray5")]
+layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 1, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 1, 327680, 65536, 0, 393216, 65536, 1, 458752, 65536, 1, 524288, 0, 0, 589824, 0, 1, 655360, 65536, 0, 655362, 65536, 1, 655361, 65536, 1, 655363, 0, 1, 655364, 65536, 1, 655365, 65536, 1, 655366, 0, 1, 655367, 65536, 1, 655368, 0, 1, 655369, 65536, 1, 655370, 65536, 1, 655371, 65536, 1, 655372, 0, 1, 655373, 65536, 1, 655374, 65536, 0, 655375, 0, 1, 655376, 0, 1, 655377, 0, 1, 655378, 0, 1, 655379, 65536, 1, 589843, 65536, 0, 524307, 65536, 1, 458771, 65536, 0, 393235, 65536, 0, 327699, 65536, 1, 262163, 65536, 0, 196627, 65536, 0, 131091, 65536, 0, 65555, 65536, 1, 19, 65536, 0, 589840, 0, 1, 524304, 65536, 0, 524303, 0, 0, 524302, 65536, 0, 524301, 65536, 1, 524300, 0, 0, 589836, 0, 1, 589837, 65536, 1, 589838, 65536, 1, 589839, 0, 1, 589835, 0, 0, 589834, 65536, 0, 589833, 65536, 0, 589829, 0, 0, 589828, 65536, 0, 589827, 65536, 1, 589826, 65536, 1, 524289, 65536, 0, 589825, 65536, 0, 524290, 65536, 0, 524291, 65536, 0, 589830, 65536, 0, 524294, 65536, 0, 589832, 0, 0)

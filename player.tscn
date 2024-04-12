@@ -116,7 +116,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
-position = Vector2(0, -10.5)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_mlv48")
 
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
